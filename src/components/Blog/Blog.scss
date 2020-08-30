@@ -1,0 +1,86 @@
+.contenedorPosts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .card-columns {
+    height: 100%;
+    @media only screen and (min-width: 576px) and (max-height: 1900px) {
+      column-count: 2 !important;
+    }
+    @media only screen and (min-width: 1900px) {
+      column-count: 3 !important;
+    }
+  }
+  @media only screen and (max-width: 1604px) {
+    justify-content: center;
+  }
+  .post {
+    height: 100%;
+    width: auto;
+    //  width: 80vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    .amplitud {
+      transition: transform 1.25s, filter 0.5s ease-in-out;
+      filter: grayscale(100%);
+    }
+    .cambiarColorTexto {
+      transition: color 1.25s ease-in-out;
+    }
+    .enfocarColorBlanco {
+      transition: color 1.25s ease-in-out;
+    }
+    .cambiarColorBorde {
+      transition: border-left 1.25s ease-in-out;
+    }
+    &:hover {
+      .amplitud {
+        filter: grayscale(0);
+        transform: scale(1.1);
+      }
+      .cambiarColorTexto {
+        color: #7b1fa2 !important;
+      }
+
+      .enfocarColorBlanco {
+        color: white !important;
+      }
+      .cambiarColorBorde {
+        border-left: 2px solid white !important;
+      }
+    }
+    .contenidoVistaPreviaPost {
+      overflow: hidden;
+      position: relative;
+      // max-height: 40vh;
+      border-radius: 5px;
+      .infoPosts {
+        position: absolute;
+        bottom: 15%;
+        width: 100%;
+        padding-left: 2vh;
+        .informacionAutor {
+          width: 45%;
+        }
+        .tituloPost {
+          color: white;
+        }
+        .vl {
+          border-left: 2px solid gray;
+          margin-right: 2px;
+        }
+        .textosAutor {
+          p {
+            margin-bottom: 0px;
+          }
+        }
+        .avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

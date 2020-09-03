@@ -1,0 +1,39 @@
+#codex-editor .ce-toolbar__plus {
+  display: none;
+}
+
+#codex-editor .ce-toolbar {
+  display: none;
+}
+
+.spinnerCentrado {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .MuiCircularProgress-root {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+
+.contenedorBlog {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 5vh;
+  flex-direction: column;
+  align-items: center;
+  h2{
+      width: 100%;
+  }
+  #editorJs {
+    width: 100%;
+    .ce-block__content {
+      margin: 0 !important;
+    }
+  }
+  .informacionAutor{
+    width: 100% !important;
+  }
+}

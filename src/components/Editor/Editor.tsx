@@ -6,8 +6,8 @@ import EditorJS from "@editorjs/editorjs";
 import { EDITOR_JS_TOOLS } from "./tools";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-import { makeStyles } from "@material-ui/core/styles";
 import { PostsModel } from "../Blog/Blog";
+import ConstantesNetwork from "../../networking/Constants";
 
 function Editor() {
   let [state, setState] = useState({
@@ -20,10 +20,10 @@ function Editor() {
     submitData: {
       autorId: 1,
       categorias: [],
+      slug: "",
       comentarios: [],
-      bloques: "",
       descripcion: "",
-      fechaCreacion: new Date(),
+      fechaCreacion: "",
       keywords: [],
       name: "",
       wallpaperImage: "",
@@ -32,11 +32,14 @@ function Editor() {
   });
 
   useEffect(() => {
-    setState(Object.assign(state, { editor: new EditorJS({ holder: "editorJs", tools: EDITOR_JS_TOOLS }) }));
+    setState(Object.assign(state, { editor: new EditorJS({ autofocus: true, holder: "editorJs", tools: EDITOR_JS_TOOLS }) }));
   }, []);
 
   function enviarContrasena() {
-    Axios.post("http://localhost:3001/accessEditor", { id: "editor", contrasenya: state.contrasenyaIntroducida }).then((data) => {
+    Axios.post(`${ConstantesNetwork.BLOG_HOST + ":" + ConstantesNetwork.BLOG_HOST_PORT}/accessEditor`, {
+      id: "editor",
+      contrasenya: state.contrasenyaIntroducida,
+    }).then((data) => {
       if (data.data.status == "success") {
         setState(cloneDeep(Object.assign(state, { tenemosAcceso: true })));
       }
@@ -63,9 +66,17 @@ function Editor() {
     });
   }
 
-  function setFormValueByKey(event: any, key: string) {
-    Object.assign(state.submitData, { [key]: event.target.value });
+  function setFormValueByKey(event: any, key: string, beforeSet?: Function) {
+    let value = event.target.value;
+    if (beforeSet) {
+      value = beforeSet(value);
+    }
+    Object.assign(state.submitData, { [key]: value });
     setState(cloneDeep(state));
+  }
+
+  function slugulize(text: string) {
+    return text.replaceAll(" ", "-").toLowerCase();
   }
 
   function guardar() {
@@ -75,14 +86,15 @@ function Editor() {
           autorId: state.submitData.autorId,
           categorias: state.submitData.categorias,
           comentarios: state.submitData.comentarios,
-          bloques: state.submitData.bloques,
+          bloques: data,
+          slug: state.submitData.slug,
           descripcion: state.submitData.descripcion,
-          fechaCreacion: new Date(),
+          fechaCreacion: new Date().toString(),
           keywords: state.submitData.keywords,
           name: state.submitData.name,
           wallpaperImage: state.submitData.wallpaperImage,
         };
-        Axios.post("http://localhost:3001/posts", obj)
+        Axios.post(`${ConstantesNetwork.BLOG_HOST + ":" + ConstantesNetwork.BLOG_HOST_PORT}/posts`, obj)
           .then((data) => {
             setState(
               cloneDeep(
@@ -110,7 +122,7 @@ function Editor() {
   }
 
   function validateForm() {
-    if (state.submitData.descripcion && state.submitData.name && state.submitData.wallpaperImage) {
+    if (state.submitData.descripcion && state.submitData.name && state.submitData.wallpaperImage && state.submitData.slug) {
       return true;
     } else {
       setState(
@@ -162,6 +174,17 @@ function Editor() {
               </div>
               <div className="row">
                 <div className="col">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Slug-identificativo-del-post"
+                    value={state.submitData.slug}
+                    onChange={(event) => setFormValueByKey(event, "slug", slugulize)}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col">
                   <div className="form-group">
                     <label htmlFor="descripcion">Descripción del post</label>
                     <textarea
@@ -188,7 +211,7 @@ function Editor() {
             </div>
             <div className="col">
               <p>Contenido</p>
-              <div id="editorJs"></div>
+              <div id="editorJs" className="shadow-sm"></div>
             </div>
           </div>
         </div>

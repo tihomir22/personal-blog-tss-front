@@ -3,17 +3,29 @@ import "./Blog.scss";
 import ClipLoader from "react-spinners/ClipLoader";
 import Axios from "axios";
 import { cloneDeep } from "lodash";
+import { ConstantesNetwork } from "../../networking/Constants";
+import { Link } from "react-router-dom";
+import InfoAutor from "../subcomponents/InfoAutor";
 
 export interface PostsModel {
+  _id?: any;
   autorId: number;
+  autorObj?: AutorModel;
+  slug: string;
   categorias: Array<string>;
   comentarios: Array<PostCommentsModel>;
   bloques: any;
   descripcion: string;
-  fechaCreacion: Date;
+  fechaCreacion: string;
   keywords: Array<string>;
   name: string;
   wallpaperImage: string;
+}
+
+export interface AutorModel {
+  id: number;
+  image: string;
+  nombre: string;
 }
 export interface PostCommentsModel {
   id: number;
@@ -26,7 +38,7 @@ function Blog() {
   });
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/posts", { timeout: 10000 })
+    Axios.get(`${ConstantesNetwork.BLOG_HOST + ":" + ConstantesNetwork.BLOG_HOST_PORT}/posts`, { timeout: 10000 })
       .then((data) => {
         setState(cloneDeep(Object.assign(newState, { posts: data.data.data, postsCargados: true })));
       })
@@ -46,33 +58,27 @@ function Blog() {
     return newState.posts && newState.posts.length > 0 ? (
       newState.posts.map((entry, index) => {
         return (
-          <div className="shadow rounded post card">
-            <div key={index} className="contenidoVistaPreviaPost p-0">
-              <img src={entry.wallpaperImage} alt="" className="img-fluid amplitud" />
-              <div className="infoPosts">
-                <h4 className="cambiarColorTexto tituloPost">{entry.name}</h4>
-                <div className="d-flex">
-                  <div className="d-flex informacionAutor">
-                    <div>
-                      <img src={entry.wallpaperImage} alt="" className="avatar " />
-                    </div>
+          <Link to={"blog/" + entry.slug} key={index}>
+            <div className="shadow rounded post card">
+              <div key={index} className="contenidoVistaPreviaPost p-0">
+                <img src={entry.wallpaperImage} alt="" className="img-fluid amplitud" />
+                <div className="infoPosts">
+                  <h4 className="cambiarColorTexto tituloPost">{entry.name}</h4>
+                  <div className="d-flex">
+                    <InfoAutor
+                      enfocable={true}
+                      autorImage={entry.autorObj?.image ? entry.autorObj.image : entry.wallpaperImage}
+                      autorName={entry.autorObj ? entry.autorObj.nombre : "JK Rowling"}
+                      postDate={entry.fechaCreacion}
+                    />
 
-                    <div className="textosAutor enfocarColorBlanco px-3">
-                      <span>
-                        <strong>Tihomir Stoychev Stoychev</strong>
-                      </span>
-                      <p className="enfocarColorBlanco">
-                        <i className="fa fa-calendar" aria-hidden="true"></i> 29/08/2020
-                      </p>
-                    </div>
+                    <div className="vl enfocarColorBlanco"></div>
+                    <div className="m-2 enfocarColorBlanco">{limitarTextosLargos(entry.descripcion, 100)}</div>
                   </div>
-
-                  <div className="vl enfocarColorBlanco"></div>
-                  <div className="m-2 enfocarColorBlanco">{limitarTextosLargos(entry.descripcion, 100)}</div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         );
       })
     ) : (

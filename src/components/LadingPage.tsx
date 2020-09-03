@@ -7,6 +7,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Blog from "./Blog/Blog";
 import Editor from "./Editor/Editor";
+import PostViewer from "./Blog/PostViewer/PostViewer";
 
 function LandingPage() {
   return (
@@ -17,6 +18,7 @@ function LandingPage() {
           <Route path="/blog" exact>
             <Blog />
           </Route>
+          <Route path="/blog/:slug" component={PostViewer}></Route>
           <Route path="/editor" exact>
             <Editor />
           </Route>

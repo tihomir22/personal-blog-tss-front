@@ -64,17 +64,7 @@ function Blog() {
                 <img src={entry.wallpaperImage} alt="" className="img-fluid amplitud" />
                 <div className="infoPosts">
                   <h4 className="cambiarColorTexto tituloPost">{entry.name}</h4>
-                  <div className="d-flex">
-                    <InfoAutor
-                      enfocable={true}
-                      autorImage={entry.autorObj?.image ? entry.autorObj.image : entry.wallpaperImage}
-                      autorName={entry.autorObj ? entry.autorObj.nombre : "JK Rowling"}
-                      postDate={entry.fechaCreacion}
-                    />
-
-                    <div className="vl enfocarColorBlanco"></div>
-                    <div className="m-2 enfocarColorBlanco">{limitarTextosLargos(entry.descripcion, 100)}</div>
-                  </div>
+                  <div className="m-2 enfocarColorBlanco">{limitarTextosLargos(entry.descripcion, 150)}</div>
                 </div>
               </div>
             </div>

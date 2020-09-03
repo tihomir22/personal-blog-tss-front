@@ -13,7 +13,7 @@ function Editor() {
   let [state, setState] = useState({
     contrasenyaIntroducida: "",
     editor: null,
-    tenemosAcceso: true,
+    tenemosAcceso: false,
     mostrandoSnackbar: false,
     severidadSnackbar: undefined,
     mensajeSnackbar: "",

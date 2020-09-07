@@ -1,0 +1,16 @@
+p {
+  white-space: pre-line;
+}
+
+.dev-icons-inline {
+  padding: 0px;
+  .list-inline-item {
+    display: inline-block;
+    max-width: 40px !important;
+    height: 100% !important;
+  }
+}
+
+.repositorioGit {
+  font-size: 40px;
+}

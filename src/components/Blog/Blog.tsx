@@ -64,7 +64,7 @@ function Blog() {
                 <img src={entry.wallpaperImage} alt="" className="img-fluid amplitud" />
                 <div className="infoPosts">
                   <h4 className="cambiarColorTexto tituloPost">{entry.name}</h4>
-                  <div className="m-2 enfocarColorBlanco">{limitarTextosLargos(entry.descripcion, 150)}</div>
+                  <div className="m-2 text-white">{limitarTextosLargos(entry.descripcion, 150)}</div>
                 </div>
               </div>
             </div>

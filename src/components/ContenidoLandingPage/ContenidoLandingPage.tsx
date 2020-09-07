@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import $ from "jquery";
 import cryptoboss from "../../img/cryptoboss.png";
-import thehawkAndthebadger from "../../img/thehawk&thebadger.png";
 import thepumper from "../../img/thepumper.jpg";
+import logo from "../../img/lifestyle.png";
+import logoEpsilon from "../../img/logoEpsilon.png";
+import PortfolioItem from "./subcomponents/PortfolioItem";
 
 function ContenidoLandingPage() {
   function cambiarApartado() {
@@ -56,7 +58,6 @@ function ContenidoLandingPage() {
     cambiarApartado();
     cerrarMenuResponsivoAlHacerClick();
     activarScrollSpy();
-    activarHoverTarjetaBadger();
   }, []);
 
   return (
@@ -65,7 +66,7 @@ function ContenidoLandingPage() {
         <div className="w-100">
           <h1 className="mb-0">
             Stoychev Stoychev
-            <span className="text-primary">Tihomir</span>
+            <span className="text-primary"> Tihomir</span>
           </h1>
           <div className="subheading mb-5">
             Mestre Serrano 4 · Canals, 46650 · (+34) 603680594 ·
@@ -321,80 +322,71 @@ function ContenidoLandingPage() {
       <section className="resume-section p-3 p-lg-5 d-flex align-items-center" id="projects">
         <div className="w-100">
           <h2 className="mb-5">Proyectos</h2>
+
           <div className="row rowPadre">
-            <div className="col-md-3 col-sm-12 ">
-              <div className="card view overlay hoverTarjetaBadger">
-                <img className="card-img-top img-fluid badgerLogo" src={thehawkAndthebadger} alt="The Hawk & The Badger Logo" />
-                <div className="mask flex-center rgba-red-strong">
-                  <p className="white-text">The Hawk & The Badger</p>
-                </div>
-              </div>
-            </div>
             <div className="col-md-9 col-sm-12 mostrarHoverTarjetaBadger">
               <div className="list-group-flush">
-                <div className="list-group-item">
-                  <div className="d-flex">
-                    <div>
-                      <img src={cryptoboss} className="icon-img" />
-                    </div>
-                    <div>
-                      <p className="mb-0">CryptoBoss</p>
-                      <p className="mb-0">
-                        <span className="badge badge-dark">
-                          <i className="fas fa-money-bill-wave"></i> Finanzas
-                        </span>
-                        <span className="badge badge-info">
-                          <i className="fas fa-chart-bar"></i> Portfolio Tracker
-                        </span>
-                        <span className="badge badge-success">
-                          <i className="fas fa-check"></i> Terminado
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                  CryptoBoss se define como un "Potente sistema de gráficos y análisis de datos, todo en su bolsillo.", ni más ni menos, es
-                  una herramienta simple pero completa que aportará al usuario información rapida y detallada sobre los movimientos de sus
-                  criptomonedas favoritas. <strong>Desarollado en NodeJs Native</strong>
-                  <br />
-                  <a href="https://play.google.com/store/apps/details?id=com.hawkbadger.cryptoboss&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
-                    <img
-                      alt="Disponible en Google Play"
-                      className="googleChip"
-                      src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png"
-                    />
-                  </a>
-                </div>
-                <div className="list-group-item">
-                  <div className="d-flex">
-                    <div>
-                      <img src={thepumper} className="icon-img" />
-                    </div>
-                    <div>
-                      <div className="mb-0">
-                        <p className="mb-0">ThePumper</p>
-                        <span className="badge badge-dark">
-                          <i className="fas fa-money-bill-wave"></i> Finanzas
-                        </span>
-                        <span className="badge badge-info">
-                          <i className="fas fa-robot"></i> Trading bot
-                        </span>
-                        <span className="badge badge-secondary">
-                          <i className="fas fa-check"></i> En progreso
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    ThePumper conecta al usuario con un mundo de posibilidades con el fin de hacer crecer sus inversiones. Creación de
-                    estrategias totalmente personalizadas basadas simplemente en el precio, o en indicadores. La app dispone de más de 50
-                    indicadores tecnicos configurables y con los cuales generar nuestras estrategias personalizadas para el bot.
-                  </p>
-                  <p>
-                    Su simpleza, rapidez y compatibilidad con multitud de exchanges de criptomonedas lo hacen el fiel compañero a la
-                    libertad financiera.
-                  </p>
-                  <strong>Siendo desarrollado en Angular + Ionic + NodeJs + NestJs</strong>
-                </div>
+                <PortfolioItem
+                  imageLogo={logoEpsilon}
+                  titulo={"Epsilon"}
+                  customCssRootClass={"rootClassEstrellaPequenya"}
+                  descripcionApp={`Mi proyecto de final de grado. Un gestionador de portfolio, con acceso directo a las casas de intercambio, permitiendo abrir posiciones manualmente con precios en vivo. Multiples graficos en ChartJs para ver la liquidez actual y como se esta gestionando, sistema de chat y sistema de alertas para advertir al usuario sobre la volatilidad del mercado.`}
+                  repositorioGithub={["https://github.com/tihomir22/Epsilon"]}
+                  tecnologiasInvolucradas={["angularjs-plain", "ionic-original", "php-plain"]}
+                  configBadges={[
+                    { color: "dark", iconoFa: "fa-money-bill-wave", texto: "Finanzas" },
+                    { color: "info", iconoFa: "fa-chart-bar", texto: "Todo en uno de las finanzas" },
+                    { color: "success", iconoFa: "fa-check", texto: "Terminado" },
+                  ]}
+                />
+
+                <PortfolioItem
+                  imageLogo={cryptoboss}
+                  titulo={"CryptoBoss"}
+                  descripcionApp={`CryptoBoss se define como un "Potente sistema de gráficos y análisis de datos, todo en su bolsillo.", ni más ni menos, es una herramienta simple pero completa que aportará al usuario información rapida y detallada sobre los movimientos de sus criptomonedas favoritas.`}
+                  configPlayStore={{
+                    link:
+                      "https://play.google.com/store/apps/details?id=com.hawkbadger.cryptoboss&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1",
+                  }}
+                  repositorioGithub={["https://github.com/tihomir22/CryptoBoss-RN"]}
+                  tecnologiasInvolucradas={["react-original"]}
+                  configBadges={[
+                    { color: "dark", iconoFa: "fa-money-bill-wave", texto: "Finanzas" },
+                    { color: "info", iconoFa: "fa-chart-bar", texto: "Portfolio Tracker" },
+                    { color: "success", iconoFa: "fa-check", texto: "Terminado" },
+                  ]}
+                />
+
+                <PortfolioItem
+                  imageLogo={logo}
+                  customCssRootClass={"rootClassEstrellaPequenya"}
+                  titulo={"Blog personal"}
+                  descripcionApp={`Este mismo blog que estas leyendo ahora mismo tambien tuvo su desarrollo. Nació como un pequeño proyecto de paginas estaticas que usaban bootstrap y su enrutamiento consistia en navegar de sección en sección, a convertirse en un blog mantenido en ReactJs, con un backend encargado de guardar y mostrar los posts en NodeJs, Dockerizado y actualmente funcionando en una instancia EC2 de AWS.`}
+                  repositorioGithub={[
+                    "https://github.com/tihomir22/personal-blog-tss-front",
+                    "https://github.com/tihomir22/personal-blog-tss-BACK",
+                  ]}
+                  tecnologiasInvolucradas={["react-original", "amazonwebservices-original", "docker-plain", "nodejs-plain"]}
+                  configBadges={[
+                    { color: "secondary", iconoFa: "fa-user", texto: "Personal" },
+                    { color: "warning", iconoFa: "fa-check", texto: "Terminado , con actualizaciones" },
+                  ]}
+                />
+
+                <PortfolioItem
+                  imageLogo={thepumper}
+                  titulo={"ThePumper"}
+                  tecnologiasInvolucradas={["angularjs-plain", "ionic-original", "nodejs-plain"]}
+                  descripcionApp={`ThePumper conecta al usuario con un mundo de posibilidades con el fin de hacer crecer sus inversiones. Creación de estrategias totalmente personalizadas basadas simplemente en el precio, o en indicadores. La app dispone de más de 50 indicadores tecnicos configurables y con los cuales generar nuestras estrategias personalizadas para el bot.
+                  
+                  Su simpleza, rapidez y compatibilidad con multitud de exchanges de criptomonedas lo hacen el fiel compañero a la libertad financiera.`}
+                  repositorioGithub={["https://github.com/tihomir22/ThePumper", "https://github.com/tihomir22/BadgerAPI-Nestjs"]}
+                  configBadges={[
+                    { color: "dark", iconoFa: "fa-money-bill-wave", texto: "Finanzas" },
+                    { color: "info", iconoFa: "fa-robot", texto: "Trading bot" },
+                    { color: "secondary", iconoFa: "fa-check", texto: "En progreso" },
+                  ]}
+                />
               </div>
             </div>
           </div>

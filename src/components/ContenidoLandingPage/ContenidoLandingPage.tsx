@@ -401,7 +401,11 @@ function ContenidoLandingPage() {
           <ul className="fa-ul mb-0">
             <li>
               <i className="fa-li fa fa-trophy text-warning"></i>
-              Mejor expediente año 2019 - SIMARRO
+              Mejor expediente año 2019-2020 - SIMARRO
+            </li>
+            <li>
+              <i className="fa-li fa fa-trophy text-warning"></i>
+              Artic Code Vault Contributor - Github
             </li>
           </ul>
         </div>

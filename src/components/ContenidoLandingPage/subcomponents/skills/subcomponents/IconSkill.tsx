@@ -10,6 +10,7 @@ export interface SkillIcon {
   nombreTecnologia: string;
   iconoTecnologia: string;
 }
+
 function IconSkill(props: PropsSkills) {
   return (
     <ul className="list-inline dev-icons">

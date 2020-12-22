@@ -5,6 +5,8 @@ import thepumper from "../../img/thepumper.jpg";
 import logo from "../../img/lifestyle.png";
 import logoEpsilon from "../../img/logoEpsilon.png";
 import PortfolioItem from "./subcomponents/PortfolioItem";
+import Experience from './subcomponents/experience/Experience';
+import Skills from "./subcomponents/skills/Skills";
 
 function ContenidoLandingPage() {
   function cambiarApartado() {
@@ -92,54 +94,7 @@ function ContenidoLandingPage() {
 
       <hr className="m-0" />
 
-      <section className="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
-        <div className="w-100">
-          <h2 className="mb-5">Experencia</h2>
-
-          <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div className="resume-content">
-              <h3 className="mb-0">Frontend Developer</h3>
-              <div className="subheading mb-3">
-                Geinfor S.L.
-                <img
-                  src="https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5c299493a3ae61d86484b85c/picture"
-                  alt=""
-                  className="imageSizes"
-                />
-              </div>
-              <p>
-                El desarollo de un ERP es un trabajo laborioso, el aprendizaje esta asegurado y la progresión tanto profesional como
-                personal esta asegurada. En Geinfor di mis primeros pasos como programador y más en concreto en el front, desarollando en
-                las ultimas tecnologias como Angular 9, Node , Ts, Rxjs , Git, HTML5,SCSS y metodologias agiles con SCRUM.
-              </p>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">Marzo 2019 - Presente</span>
-            </div>
-          </div>
-
-          <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div className="resume-content">
-              <h3 className="mb-0">Contable y atención al cliente</h3>
-              <div className="subheading mb-3">
-                ITV Xativa
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/ITV_logo.svg/1200px-ITV_logo.svg.png"
-                  alt=""
-                  className="imageSizes"
-                />
-              </div>
-              <p>
-                Me formó para un entorno de trabajo dinamico y intrepido. Me sirvió para comprender las dinamicas de una de las industrias
-                más grandes. Mis tareas se basaban en simple ofimatica como access,word,excel... Manejo de caja y atención al cliente.
-              </p>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">Marzo 2014 - Febrero 2016</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Experience></Experience>
 
       <hr className="m-0" />
 
@@ -186,114 +141,7 @@ function ContenidoLandingPage() {
 
       <hr className="m-0" />
 
-      <section className="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
-        <div className="w-100">
-          <h2 className="mb-5">Habilidades</h2>
-
-          <div className="subheading mb-3">Lenguajes de programación y Herramientas</div>
-          <ul className="list-inline dev-icons">
-            <li className="list-inline-item">
-              <i className="fab fa-html5"></i>
-            </li>
-            <li className="list-inline-item">
-              <i className="fab fa-css3-alt"></i>
-            </li>
-            <li className="list-inline-item">
-              <i className="fab fa-js-square"></i>
-            </li>
-            <li className="list-inline-item">
-              <i className="fab fa-angular"></i>
-            </li>
-            <li className="list-inline-item">
-              <i className="fab fa-bootstrap"></i>
-            </li>
-            <div className="list-inline-item">
-              <i className="devicon-git-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-android-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-bitbucket-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-cplusplus-plain"></i>
-            </div>
-
-            <div className="list-inline-item">
-              <i className="devicon-csharp-plain"></i>
-            </div>
-
-            <li className="list-inline-item">
-              <i className="fab fa-react"></i>
-            </li>
-            <li className="list-inline-item">
-              <i className="fab fa-node-js"></i>
-            </li>
-            <li className="list-inline-item">
-              <i className="fab fa-sass"></i>
-            </li>
-
-            <li className="list-inline-item">
-              <i className="fab fa-wordpress"></i>
-            </li>
-
-            <li className="list-inline-item">
-              <i className="fab fa-npm"></i>
-            </li>
-            <div className="list-inline-item">
-              <i className="devicon-java-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-mongodb-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-mysql-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-php-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-typescript-plain"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-heroku-original"></i>
-            </div>
-            <div className="list-inline-item">
-              <i className="devicon-docker-plain"></i>
-            </div>
-          </ul>
-
-          <div className="subheading mb-3">Workflow</div>
-          <ul className="fa-ul mb-0">
-            <li>
-              <i className="fa-li fa fa-check"></i>
-              Mobile-First, diseño responsive
-            </li>
-            <li>
-              <i className="fa-li fa fa-check"></i>
-              Testeo en multiples navegadores y debugging
-            </li>
-            <li>
-              <i className="fa-li fa fa-check"></i>
-              Equipos multidiscisplinares
-            </li>
-            <li>
-              <i className="fa-li fa fa-check"></i>
-              Desarollo agil y SCRUM
-            </li>
-            <li>
-              <i className="fa-li fa fa-check"></i>
-              Escalabilidad y eficiencia
-            </li>
-            <li>
-              <i className="fa-li fa fa-check"></i>
-              Programación reactiva
-            </li>
-          </ul>
-        </div>
-      </section>
-
+      <Skills></Skills>
       <hr className="m-0" />
 
       <section className="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">

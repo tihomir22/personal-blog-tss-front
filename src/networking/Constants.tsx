@@ -7,4 +7,6 @@ export class ConstantesNetwork {
     return this.BLOG_HOST + ":" + this.BLOG_HOST_PORT;
   }
 }
+
+
 export default ConstantesNetwork;

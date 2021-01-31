@@ -1,5 +1,7 @@
 import React from "react";
 import LandingPage from "./components/LadingPage.tsx";
+import MetaTags from 'react-meta-tags';
+
 
 function App() {
   return (

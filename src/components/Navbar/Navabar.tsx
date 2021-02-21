@@ -1,5 +1,7 @@
 import React from "react";
 import avatar from "../../img/profile.jpg";
+import Flags from "country-flag-icons/react/3x2";
+import "./Navabar.scss";
 function Navabar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -58,6 +60,34 @@ function Navabar() {
               </li>
             );
           })}
+          <br></br>
+          <li className="nav-item">
+            <div>
+              <p>Descargar CV</p>
+              <div className="row wrapperIconosIdioma">
+                <div className="col-6 wrapperFlag">
+                  <a
+                    href="https://github.com/tihomir22/printable-ready-cv/raw/develop/CV-English-21-02-2021.pdf"
+                    download="CV-English-21-02-2021.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Flags.US title="English version" />
+                  </a>
+                </div>
+                <div className="col-6 wrapperFlag">
+                  <a
+                    href="https://github.com/tihomir22/printable-ready-cv/raw/develop/CV-Spanish-21-02-2021.pdf"
+                    download="CV-Spanish-21-02-2021.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Flags.ES title="Spanish version" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>

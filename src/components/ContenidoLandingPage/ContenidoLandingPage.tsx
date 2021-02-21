@@ -7,6 +7,8 @@ import logoEpsilon from "../../img/logoEpsilon.png";
 import PortfolioItem from "./subcomponents/PortfolioItem";
 import Experience from './subcomponents/experience/Experience';
 import Skills from "./subcomponents/skills/Skills";
+import Flags from 'country-flag-icons/react/3x2'
+
 
 function ContenidoLandingPage() {
   function cambiarApartado() {
@@ -41,20 +43,6 @@ function ContenidoLandingPage() {
     });
   }
 
-  function activarHoverTarjetaBadger() {
-    document.getElementsByClassName("hoverTarjetaBadger")[0].addEventListener("click", function (event) {
-      let tarjetaBadger: any = document.querySelector(".mostrarHoverTarjetaBadger");
-      if (tarjetaBadger) {
-        if (tarjetaBadger.style.visibility == "hidden") {
-          tarjetaBadger.style.visibility = "visible";
-          tarjetaBadger.style.opacity = 1;
-        } else {
-          tarjetaBadger.style.visibility = "hidden";
-          tarjetaBadger.style.opacity = 0;
-        }
-      }
-    });
-  }
 
   useEffect(() => {
     cambiarApartado();

@@ -5,12 +5,20 @@ import ExperienceItem, { ExperienceItemProps } from "./subcomponents/ExperienceI
 function Experience(props: any) {
   var posiciones: Array<ExperienceItemProps> = [
     {
+      positionName: "Senior Frontend Developer",
+      companyName: "Aratech",
+      companyLogoUrl:
+        "https://media-exp1.licdn.com/dms/image/C4D0BAQGnRDDskfWSZw/company-logo_200_200/0/1601563765919?e=2159024400&v=beta&t=M0dcfXQbKt99qKNZtG8YIhBOw1floc0I8jLMw7UBjfY",
+      descriptionJob: `En este empresa comencé mi aventura como senior developer por primera vez, con más responsabilidades que nunca y además en un entorno mucho más dinamico y sobretodo internacional, tratando con clientes de todo el mundo con proyectos y ideas desafiantes!`,
+      workingDate: "Agosto 2021 - Presente",
+    },
+    {
       positionName: "MEAN FullStack developer + DevOps",
       companyName: "PFS Group",
       companyLogoUrl:
         "https://media-exp1.licdn.com/dms/image/C4D0BAQHaTwNFo4_f4w/company-logo_200_200/0?e=2159024400&v=beta&t=cO3ag0mZTqNDNbNx6EBynZNmmSW1vNu3y4vllXzQusw",
       descriptionJob: `Si en la anterior empresa empecé mi aventura como desarrollador de software, en esta crecí y sigo creciendo exponencialmente. Soy el encargado de mantener varios de sus proyectos, y empezar otros desde 0. Desde la parte de front usando tecnologias como Angular,RxJS,ES6-Beyond JS, entre otras tantas junto a tecnologias del backend como NodeJs, con frameworks como Loopback3/4 y tambien soy el encargado del despliegue de contenedores con Docker + Docker Compose y demás tareas DevOps.`,
-      workingDate: "Agosto 2020 - Presente",
+      workingDate: "Agosto 2020 - Agosto 2021",
     },
     {
       positionName: "Frontend Developer",

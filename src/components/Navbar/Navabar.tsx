@@ -65,9 +65,10 @@ function Navabar() {
             <div>
               <p>Descargar CV</p>
               <div className="row wrapperIconosIdioma">
+               
                 <div className="col-6 wrapperFlag">
                   <a
-                    href="https://github.com/tihomir22/printable-ready-cv/raw/develop/CV-English-21-02-2021.pdf"
+                    href="https://github.com/tihomir22/printable-ready-cv/raw/develop/CV-English.pdf"
                     download="CV-English-21-02-2021.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -75,9 +76,10 @@ function Navabar() {
                     <Flags.US title="English version" />
                   </a>
                 </div>
+
                 <div className="col-6 wrapperFlag">
                   <a
-                    href="https://github.com/tihomir22/printable-ready-cv/raw/develop/CV-Spanish-21-02-2021.pdf"
+                    href="https://github.com/tihomir22/printable-ready-cv/raw/develop/CV-Spanish.pdf"
                     download="CV-Spanish-21-02-2021.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -85,6 +87,7 @@ function Navabar() {
                     <Flags.ES title="Spanish version" />
                   </a>
                 </div>
+
               </div>
             </div>
           </li>

@@ -16,7 +16,7 @@ function ExperienceItem(props: ExperienceItemProps) {
         <h3 className="mb-0">{props.positionName}</h3>
         <div className="subheading mb-3">
           {props.companyName}
-          <img src={props.companyLogoUrl} alt="" className="imageSizes" />
+          <img src={props.companyLogoUrl} alt="" className="imageSizes ml-2" />
         </div>
         <p>{props.descriptionJob}</p>
       </div>
